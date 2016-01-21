@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    fash[:danger] = "Question has been deleted"
+    flash[:danger] = "Question has been deleted"
     redirect_to questions_path
   end
 

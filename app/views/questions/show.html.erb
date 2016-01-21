@@ -1,5 +1,9 @@
 <h1 align="center"><%= @question.title %></h1>
 
-<%= @question.content %>
+<div class="well">
+  <h4 class="center content">Content:</h4>
+  <hr>
+  <%= @question.content %>
+</div>
 
 <%= link_to 'back to listing', questions_path %>

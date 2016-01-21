@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: [:edit, :update, :show, :destroy]
 
+  
   def index
     @questions=Question.all
   end
@@ -9,7 +11,6 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
 
   def create
@@ -23,7 +24,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:success] = "Question successfully updated"
       redirect_to question_path(@question)
@@ -34,15 +34,22 @@ class QuestionsController < ApplicationController
 
 
   def show
-    @question = Question.find(params[:id])
   end
 
+  def destroy
+    @question.destroy
+    redirect_to questions_path
+  end
 
 
   private
 
   def question_params
     params.require(:question).permit(:title, :content)
+  end
+
+  def set_question
+    @question = Question.find(params[:id])
   end
 
 

@@ -1,8 +1,4 @@
-<% if @question.errors.any? %>
-  <% @question.errors.full_messages.each do |msg| %>
-    <%= msg %>
-  <%end%>
-<%end%>
+<%= render 'shared/errors', obj: @question %>
 
 <div class="row">
   <div class='col-xs-12'>

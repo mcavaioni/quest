@@ -1,16 +1,15 @@
 class UsersController < ApplicationController
+  before_action :require_same_user
+  before_action :require_user
 
   def new
     @user=User.new
   end
 
-  def show
-    @user=User.find(params[:id])
-  end
-
   def create
     @user=User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Welcome #{@user.username}!"
       redirect_to user_path(@user)
     else
@@ -33,6 +32,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user=User.find(params[:id])
+  end
     
 
 
@@ -40,6 +42,15 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def require_same_user
+    # binding.pry
+    @user=User.find(params[:id])
+    if current_user.id != @user.id
+      flash[:danger] = "You can only edit your own account"
+      redirect_to root_path
+    end
   end
 
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_same_user
-  before_action :require_user
+  before_action :require_same_user, except: [:new, :create]
+  before_action :require_user, except: [:new, :create]
 
   def new
     @user=User.new

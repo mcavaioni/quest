@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :username
       t.string :email
-      t.string :type
+      t.string :signup_type
       t.boolean :admin, default: false
 
       t.timestamps

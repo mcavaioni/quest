@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160122150425) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "type"
+    t.string   "signup_type"
     t.boolean  "admin",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"

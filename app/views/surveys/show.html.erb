@@ -1,0 +1,36 @@
+
+<h1 align="center"><%= @survey.name %></h1>
+  <div class="well">
+    <div class="row center">
+    <h4 class="center content">List of questions:</h4>
+      <div class="col-md-4 col-md-offset-4"> Total: 
+        <small><%= pluralize(@survey.questions.count, "question") if @survey.questions %></small>
+      </div>
+    </div>
+
+  </br>
+    <table class="table table-hover">
+    <th> Question ID </th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Action</th>
+      <% @survey.questions.each do |question| %>
+        <tr>
+          <td> </td>
+          <td><%= question.title %></td>
+          <td><%= question.content %></td>
+          <td>
+            <%=link_to 'edit', edit_question_path(question) %> 
+            <%=link_to 'show', question_path(question) %>
+            <%=link_to 'delete', question_path(question), method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
+          </td>
+        </tr>
+      <%end%>
+    </table>
+  </div>
+
+
+<%= link_to 'back to listing', surveys_path %>
+
+
+    

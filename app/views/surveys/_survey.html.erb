@@ -1,0 +1,28 @@
+<% obj.each do |survey| %>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="well well-lg">
+                <div class="article-title">
+                    <%=link_to survey.name, survey_path(survey)%>
+                </div>
+            <div class="article-body">
+                <div class="article-meta-details">
+                    <small>Created by: ...,
+                        <%= time_ago_in_words(survey.created_at) %> ago,
+                        last updated: <%= time_ago_in_words(survey.updated_at) %> ago
+                    </small>
+                </div>
+            </div>
+            <% if survey.questions.any? %>
+                <p>Total questions: <%= survey.questions.count %></p>
+            <% end %>
+            <% if logged_in?  %>
+                <div class="article-actions">
+                    <%=link_to "Edit this questionnaire", edit_survey_path(survey), class: "btn btn-xs btn-primary"%>
+                    <%=link_to "Delete this questionnaire", survey_path(survey), method: :delete, data: {confirm: "Are you sure you want to delete this questionnaire?"}, class: "btn btn-xs btn-danger" %>
+                </div>
+             <% end %>
+            </div>
+        </div>
+    </div>
+<%end%>

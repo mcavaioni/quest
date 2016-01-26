@@ -11,11 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122150425) do
+ActiveRecord::Schema.define(version: 20160126203638) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_questions", force: :cascade do |t|
+    t.integer "survey_id"
+    t.integer "question_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

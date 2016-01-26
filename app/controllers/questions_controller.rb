@@ -14,7 +14,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    binding.pry
+    @questionnaire=Questionnaire.find(params[:questionnaire_id])
+    @question=@questionnaire.questions.new(question_params)
+    # @question = Question.new(question_params)
     if @question.save
       flash[:success] = "Question successfully created"
       redirect_to question_path(@question)
@@ -46,7 +49,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :content)
+    params.require(:question).permit(:title, :content, :question_questionnaires_id)
   end
 
   def set_question

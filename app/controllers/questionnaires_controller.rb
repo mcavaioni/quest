@@ -2,6 +2,7 @@ class QuestionnairesController < ApplicationController
 
   def new
     @questionnaire = Questionnaire.new
+    @questionnaire.questions.build
   end
 
   def index

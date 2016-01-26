@@ -26,11 +26,11 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
-            <%= f.fields_for(:questions, Question.new) do |quest_form| %>
-              <p>Add a new question:
-                <%= quest_form.text_field :title %>
-              </p>
-            <% end %>
+  
+              
+                <%= link_to "Add a new question", new_question_path %>
+              
+            
             </div>
           </div>
         </div>

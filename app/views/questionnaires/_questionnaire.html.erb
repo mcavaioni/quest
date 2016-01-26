@@ -1,15 +1,8 @@
-<h1 align="center">Welcome to <%= @user.username.capitalize %>'s page</h1>
-
-
-<h4 align="center">
-    <%= @user.username.capitalize %>'s questionnaires
-</h4>
-
 <table class="table table-striped table-hover">
   <th> Questionnaire ID </th>
   <th>Name</th>
   <th>Action</th>
-  <% @user.questionnaires.each do |questionnaire| %>
+  <% @questionnaires.each do |questionnaire| %>
       <tr>
         <td> </td>
         <td><%=link_to questionnaire.name, questionnaire_path(questionnaire)  %></td>

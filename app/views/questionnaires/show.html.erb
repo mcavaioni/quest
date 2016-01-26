@@ -1,0 +1,14 @@
+<h1 align="center"><%= @questionnaire.name %></h1>
+
+<div class="well">
+  <h4 class="center content">List of questions:</h4>
+  <a class="btn btn-default" href="/questions/new" role="button">Add a new question</a>
+  <hr>
+
+  <%@questionnaire.questions.each do |q| %>
+    <%=q.title%>
+    <%end%>
+
+</div>
+
+<%= link_to 'back to listing', questionnaires_path %>

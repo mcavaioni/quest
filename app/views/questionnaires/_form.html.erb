@@ -1,0 +1,27 @@
+<%= render 'shared/errors', obj: @questionnaire %>
+
+<div class="row">
+  <div class='col-xs-12'>
+    <%= form_for(@questionnaire, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="col-sm-2 control-label">
+          <%= f.label :name %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :name, class: "form-control", placeholder: "Name", autofocus: true %>
+        </div>
+      </div>  
+
+        <div class="form-group">
+          <div class="center">
+          <%= f.submit(@questionnaire.new_record? ? "Submit questionnaire" : "Update questionnaire", class: "btn btn-primary")%>
+          </div>
+        </div>  
+    <%end%>
+    <div class="form-group">
+          <div class="center">
+           [<%= link_to "Cancel request and return to listing", questionnaires_path %>] 
+          </div>
+    </div>
+  </div>
+ </div> 

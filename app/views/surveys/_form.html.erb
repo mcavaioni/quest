@@ -27,8 +27,19 @@
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
   
-              
-                <%= link_to "Add a new question", new_question_path %>
+        <div class="form-group" >
+          <%= f.fields_for :questions do |field| %>
+            <div class="container_question">
+              <p>
+              <%= field.label 'title' %>
+              <%= field.text_field :title, class: 'question_field-js' %>
+              <%= field.label 'content' %>
+              <%= field.text_field :content, class: 'question_field-js' %>
+              </p>
+            </div>
+          <%end%>
+        </div>
+                <%= link_to "Add a new question", '#', id: 'new_question_btn-js', class: 'red' %>
               
             
             </div>

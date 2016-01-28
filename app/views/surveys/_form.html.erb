@@ -26,22 +26,28 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
+            <p>
+            Add and create a new question here:
   
-        <div class="form-group" >
+        
+        
           <%= f.fields_for :questions do |field| %>
-            <div class="container_question">
+            <div class="container-quest">
               <p>
-              <%= field.label 'title' %>
+              <%= field.label 'title', class: 'question_field-js' %>
               <%= field.text_field :title, class: 'question_field-js' %>
-              <%= field.label 'content' %>
+              <%= field.label 'content', class: 'question_field-js' %>
               <%= field.text_field :content, class: 'question_field-js' %>
               </p>
+             
             </div>
           <%end%>
-        </div>
-                <%= link_to "Add a new question", '#', id: 'new_question_btn-js', class: 'red' %>
+        
+        
+
+          <%= link_to "more...", '#', id: 'new_question_btn-js', class: 'red' %>
               
-            
+            </p>
             </div>
           </div>
         </div>

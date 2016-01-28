@@ -31,7 +31,7 @@
   
         
         
-          <%= f.fields_for :questions do |field| %>
+          <%= f.fields_for(:questions, Question.new) do |field| %>
             <div class="container-quest">
               <p>
               <%= field.label 'title', class: 'question_field-js' %>

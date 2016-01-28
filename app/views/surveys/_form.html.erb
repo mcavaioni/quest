@@ -5,10 +5,10 @@
     <%= form_for(@survey, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
         <div class="col-sm-2 control-label">
-          <%= f.label "Questionnaire title" %>
+          <%= f.label "Title:" %>
         </div>
         <div class="col-sm-8">
-          <%= f.text_field :name, class: "form-control", placeholder: "Survey name", autofocus: true %>
+          <%= f.text_field :name, class: "form-control", placeholder: "Questionnaire name", autofocus: true %>
         </div>
       </div>  
       
@@ -16,7 +16,7 @@
         <div class="well form-group">
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
-              <p>Attach the following questions:</p>
+              <p id="survey_color">Attach the following questions:</p>
               <%= f.collection_check_boxes :question_ids, Question.all, :id, :title do |cb| %>
               <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
               <% end %>
@@ -28,8 +28,10 @@
         <div class="well form-group">
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
-            <p>
-            Add and create a new question here:        
+            <p id="survey_color">
+            Add and create a new question here:  
+            </p>
+            <p>      
               <%= f.fields_for(:questions, Question.new) do |field| %>
                 <div class="container-quest">
                   <p>

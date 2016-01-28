@@ -9,20 +9,15 @@
     </div>
 
   </br>
-    <table class="table table-hover">
-    <th> Question ID </th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Action</th>
+    <table class="center table">
+    <th class="center"> Question ID </th>
+    <th class="center">Title</th>
+    <th class="center">Content</th>
       <% @survey.questions.each do |question| %>
         <tr>
           <td> </td>
           <td><%= question.title %></td>
           <td><%= question.content %></td>
-          <td>
-            <%=link_to 'edit', edit_question_path(question) %> 
-            <%=link_to 'show', question_path(question) %>
-          </td>
         </tr>
       <%end%>
     </table>

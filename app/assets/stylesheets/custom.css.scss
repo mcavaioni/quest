@@ -56,6 +56,10 @@ table tr:not(:first-child) {
     counter-increment: rowNumber;
 }
 
+/*table tr:not(:nth-child(odd)) {
+    counter-increment: rowNumber;
+}*/
+
 table tr td:first-child::before {
     content: counter(rowNumber);
     min-width: 1em;
@@ -75,4 +79,5 @@ table tr td:first-child::before {
 #survey_color {
     color: #777777
 }
+
 

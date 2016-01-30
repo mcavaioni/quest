@@ -9,20 +9,67 @@
     </div>
 
   </br>
-    <table class="center table">
+ <!--    <table class="center table">
     <th class="center"> Question ID </th>
     <th class="center">Title</th>
     <th class="center">Content</th>
+    <th> <%=link_to "answer", "#", class: "answer-btn-js" %></th> 
       <% @survey.questions.each do |question| %>
         <tr>
           <td> </td>
           <td><%= question.title %></td>
           <td><%= question.content %></td>
         </tr>
+
+        <tr> 
+          <%=form_for(@answer, :html => {class: "form-horizontal col-sm-8", role: "form"}) do |f| %>
+          <%=f.hidden_field :question_id, value: question.id %>
+            <td>
+              <div class="form-group red ">
+                <div class="col-sm-2 control-label">
+                  <%= f.label "Content:" %>
+                </div>
+                <div class="col-sm-8">
+               
+                <%= f.text_field :content, class: "form-control answer-form", placeholder: "Answer content", autofocus: true %>
+<%question.answers.each do |t| %>
+<div class="answer-form">
+<%=t.content%>
+</div>
+<%end%>
+
+                </div>
+              </div>  
+            </td>
+          <%end%>
+        </tr>
       <%end%>
     </table>
-  </div>
+  </div> -->
 
+
+
+
+<% @survey.questions.each do |question| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><%= question.title %></h4>
+      <!-- <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span> -->
+      <h3 class="panel-title"><%= question.content %></h3>
+    </div>
+    <div class="panel-body specialCollapse">
+      <%=form_for(@answer, :html => {class: "form-horizontal col-sm-12", role: "form"}) do |f| %>
+      <%=f.hidden_field :question_id, value: question.id %>
+      <div class="form-group">
+       
+        <div class="col-sm-12">
+          <%= f.text_area :content, class: "form-control answer-form", placeholder: "Answer content", autofocus: true %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
 
 <%= link_to 'back to listing', surveys_path %>
 

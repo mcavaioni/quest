@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
               <p id="survey_color">Attach the following questions:</p>
-              <%= f.collection_check_boxes :question_ids, Question.all, :id, :title do |cb| %>
+              <%= f.collection_check_boxes :question_ids, Question.all, :id, :content do |cb| %>
               <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
               <% end %>
             </div>
@@ -35,8 +35,8 @@
               <%= f.fields_for(:questions, Question.new) do |field| %>
                 <div class="container-quest">
                   <p>
-                  <%= field.label 'title', class: 'question_field-js' %>
-                  <%= field.text_field :title, class: 'question_field-js' %>
+                  <%= field.label 'category', class: 'question_field-js' %>
+                  <%= field.select :title, Question::Titles, { :include_blank => true }, { :class => 'question_field-js'} %>
                   <%= field.label 'content', class: 'question_field-js' %>
                   <%= field.text_field :content, class: 'question_field-js' %>
                   </p>

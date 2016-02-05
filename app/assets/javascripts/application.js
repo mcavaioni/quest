@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require answers
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require survey_form

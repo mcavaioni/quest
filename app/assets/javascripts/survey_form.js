@@ -35,17 +35,17 @@ $(document).on('page:load', function(){
 
 //test for show form for answers
 
-$(document).on('click', '.panel-heading span.clickable', function(e){
-    var $this = $(this);
-    if(!$this.hasClass('panel-collapsed')) {
-        $this.parents('.panel').find('.specialCollapse').slideUp();
-        $this.addClass('panel-collapsed');
-        $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-    } else {
-        $this.parents('.panel').find('.specialCollapse').slideDown();
-        $this.removeClass('panel-collapsed');
-        $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-    }
-})
+// $(document).on('click', '.panel-heading span.clickable', function(e){
+//     var $this = $(this);
+//     if(!$this.hasClass('panel-collapsed')) {
+//         $this.parents('.panel').find('.specialCollapse').slideUp();
+//         $this.addClass('panel-collapsed');
+//         $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+//     } else {
+//         $this.parents('.panel').find('.specialCollapse').slideDown();
+//         $this.removeClass('panel-collapsed');
+//         $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+//     }
+// })
 
 

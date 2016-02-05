@@ -8,9 +8,15 @@ class AnswersController < ApplicationController
   end
 
   def create
-    binding.pry
-    # @answer = Answer.create(answer_params)
-    redirect_to :back
+    # binding.pry
+    # @survey = survey.find(@answer.survey_id)
+    # @answer = @survey.answers.create(answer_params)
+    @answer = Answer.create(answer_params)
+
+    html_string = render_to_string 'answers/_answer', locals:{answer: @answer}, layout: false
+    render json: {template: html_string}
+    # @reservation.valid?
+    # render json: ReservationJsonViewObject.new(@reservation).get_json_for_reservation
   end
 
   def destroy
@@ -21,7 +27,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:content, :question_id)
+    params.require(:answer).permit(:content, :question_id, :survey_id)
   end
 
 

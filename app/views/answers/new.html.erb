@@ -19,14 +19,17 @@
       <h3 class="panel-title"><%= question.content %></h3>
     </div>
     <div class="panel-body specialCollapse">
-      <%=form_for(@answer, url: new_survey_answer_path(id:@survey.id), :html => {class: "form-horizontal col-sm-12", role: "form"}) do |f| %>
+      <%=form_for(@answer, url: survey_answers_path(id:@survey.id), :html => {class: "form-horizontal col-sm-12", role: "form"}, remote: true) do |f| %>
       <%=f.hidden_field :question_id, value: question.id %>
-      <div class="form-group">
-        <div class="col-sm-12">
+      <div class="form-group parent">
+        <div class="col-sm-12 child">
           <%= f.text_area :content, class: "form-control answer-form", placeholder: "Answer content", autofocus: true %>
         </div>
       </div>
-      <%=f.submit%>
+      <div class="box"> 
+          <%=render 'answer'%> 
+        </div>
+      <%=f.submit(class: 'answer-btn-js')%>
       <%end%>
     </div>
   </div>

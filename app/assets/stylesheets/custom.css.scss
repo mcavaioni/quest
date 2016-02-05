@@ -80,4 +80,11 @@ table tr td:first-child::before {
     color: #777777
 }
 
+.displaying form{
+    display: none;
+}
 
+.change-color{
+    border-color: green;
+    background-color: lightgreen;
+}

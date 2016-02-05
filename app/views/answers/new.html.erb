@@ -13,7 +13,7 @@
 
 
 <% @survey.questions.each do |question| %>
-  <div class="panel panel-default">
+  <div class="panel panel-default parent">
     <div class="panel-heading">
       <h4><%= question.title %></h4>
       <h3 class="panel-title"><%= question.content %></h3>
@@ -21,8 +21,8 @@
     <div class="panel-body specialCollapse">
       <%=form_for(@answer, url: survey_answers_path(id:@survey.id), :html => {class: "form-horizontal col-sm-12", role: "form"}, remote: true) do |f| %>
       <%=f.hidden_field :question_id, value: question.id %>
-      <div class="form-group parent">
-        <div class="col-sm-12 child">
+      <div class="form-group">
+        <div class="col-sm-12">
           <%= f.text_area :content, class: "form-control answer-form", placeholder: "Answer content", autofocus: true %>
         </div>
       </div>

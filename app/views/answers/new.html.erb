@@ -18,13 +18,16 @@
       <h4><%= question.title %></h4>
       <h3 class="panel-title"><%= question.content %></h3>
     </div>
-
+    <div class="panel-body specialCollapse">
+      <%=form_for(@answer, url: new_survey_answer_path(id:@survey.id), :html => {class: "form-horizontal col-sm-12", role: "form"}) do |f| %>
+      <%=f.hidden_field :question_id, value: question.id %>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <%= f.text_area :content, class: "form-control answer-form", placeholder: "Answer content", autofocus: true %>
+        </div>
+      </div>
+      <%=f.submit%>
+      <%end%>
+    </div>
   </div>
 <%end%>
-
-
-
-<%= link_to 'back to listing', surveys_path %>
-
-
-    

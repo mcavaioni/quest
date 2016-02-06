@@ -19,6 +19,12 @@ class AnswersController < ApplicationController
     # render json: ReservationJsonViewObject.new(@reservation).get_json_for_reservation
   end
 
+
+  def show
+    @survey=Survey.find(params[:survey_id])  
+    # @answer=Answer.find(params[:id])
+  end
+
   def destroy
   end
 

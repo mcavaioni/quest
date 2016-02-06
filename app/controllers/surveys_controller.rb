@@ -39,6 +39,7 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
+    # do i need this one?
     @answer = Answer.new
   end
 

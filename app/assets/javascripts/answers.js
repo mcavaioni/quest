@@ -3,7 +3,7 @@ $(function(){
     var template = (data.template);
     $(this).parent().append(template)
 //if i want to keep the text underneath don't put the line below
-    $('textarea').val('')
+    // $('textarea').val('')
     $(this).parent().addClass('displaying')
     $(this).parent().parent().addClass('change-color')
     // $(this).parents('.parent').css( "color", "red" )

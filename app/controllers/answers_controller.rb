@@ -7,10 +7,15 @@ class AnswersController < ApplicationController
     # @survey.questions.build
   end
 
+  def index
+
+  end
+
   def create
     # binding.pry
     # @survey = survey.find(@answer.survey_id)
     # @answer = @survey.answers.create(answer_params)
+    # @survey.questions.answer.build(answer_params)
     @answer = Answer.create(answer_params)
 
     html_string = render_to_string 'answers/_answer', locals:{answer: @answer}, layout: false
@@ -19,6 +24,20 @@ class AnswersController < ApplicationController
     # render json: ReservationJsonViewObject.new(@reservation).get_json_for_reservation
   end
 
+  def edit
+    @answer=Answer.find(params[:id])
+    session[:return_to] ||= request.referer
+  end
+
+  def update
+    @answer=Answer.find(params[:id])
+    if @answer.update(answer_params)
+      flash[:success]="Answer successfully updated"
+      redirect_to session.delete(:return_to)
+    else
+      redirect 'edit'
+    end
+  end
 
   def show
     @survey=Survey.find(params[:survey_id])  

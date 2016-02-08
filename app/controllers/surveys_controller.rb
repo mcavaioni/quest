@@ -3,6 +3,7 @@ class SurveysController < ApplicationController
 
   def index
     @surveys=Survey.all
+    # binding.pry
   end
 
   def new
@@ -40,7 +41,7 @@ class SurveysController < ApplicationController
   def show
     @survey = Survey.find(params[:id])
     # do i need this one?
-    @answer = Answer.new
+    # @answer = Answer.new
   end
 
   def destroy

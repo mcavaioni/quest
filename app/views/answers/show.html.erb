@@ -10,8 +10,6 @@
 
   </br>
 
-
-
 <% @survey.questions.each do |question| %>
   <div class="panel panel-default parent">
     <div class="panel-heading">
@@ -39,3 +37,5 @@
       </div>
   </div>
 <%end%>
+
+<%=link_to "back to listing", surveys_path %>

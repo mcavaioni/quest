@@ -13,9 +13,15 @@
                     </small>
                 </div>
             </div>
+            
             <% if survey.questions.any? %>
                 <p>Total questions: <%= survey.questions.count %></p>
             <% end %>
+
+            <% if survey.questions.select{|a| a.answer} %>
+                <p>Total answers: <%= survey.questions.select{|a| a.answer}.count %></p>
+            <%end%>
+
             <% if logged_in?  %>
                 <div class="article-actions">
                     <%=link_to "Edit this questionnaire", edit_survey_path(survey), class: "btn btn-xs btn-primary"%>

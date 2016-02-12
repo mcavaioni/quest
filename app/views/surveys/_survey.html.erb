@@ -6,7 +6,9 @@
         <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
                 <div class="article-title">
-                    <%=link_to survey.name, survey_path(survey)%>
+                    <h3>
+                        <%=survey.name.capitalize%>
+                    </h3>
                 </div>
             <div class="article-body">
                 <div class="article-meta-details">
@@ -50,7 +52,9 @@
         <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
                 <div class="article-title">
-                    <%=link_to survey.name, survey_path(survey)%>
+                    <h3>
+                    <%=link_to survey.name.capitalize, survey_path(survey)%>
+                    </h3>
                 </div>
             <div class="article-body">
                 <div class="article-meta-details">

@@ -48,9 +48,8 @@ $(document).on('page:load', function(){
 //     }
 // })
 
-
+//for displaying/hiding answered questionnaires
 $(function(event){
- // event.preventDefault();
   $('.btn-to-answered').on('click', function(event){
      event.preventDefault(event);
      debugger;
@@ -59,7 +58,6 @@ $(function(event){
 });
 
 $(document).on('page:load', function(event){
-    // event.preventDefault();
 $('.btn-to-answered').on('click', function(event){
      event.preventDefault(); 
     $(this).siblings().toggleClass("display-answered")
@@ -68,7 +66,6 @@ $('.btn-to-answered').on('click', function(event){
 
 //this is for unaswered questionnaires
 $(function(event){
- // event.preventDefault();
   $('.btn-to-unanswered').on('click', function(event){
      event.preventDefault();
     $(this).siblings().toggleClass("display-unanswered")
@@ -76,7 +73,6 @@ $(function(event){
 });
 
 $(document).on('page:load', function(event){
-    // event.preventDefault();
 $('.btn-to-unanswered').on('click', function(event){
      event.preventDefault(); 
     $(this).siblings().toggleClass("display-unanswered")

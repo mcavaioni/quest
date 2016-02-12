@@ -49,3 +49,36 @@ $(document).on('page:load', function(){
 // })
 
 
+$(function(event){
+ // event.preventDefault();
+  $('.btn-to-answered').on('click', function(event){
+     event.preventDefault(event);
+     debugger;
+    $(this).siblings().toggleClass("display-answered")
+    })
+});
+
+$(document).on('page:load', function(event){
+    // event.preventDefault();
+$('.btn-to-answered').on('click', function(event){
+     event.preventDefault(); 
+    $(this).siblings().toggleClass("display-answered")
+    })
+})
+
+//this is for unaswered questionnaires
+$(function(event){
+ // event.preventDefault();
+  $('.btn-to-unanswered').on('click', function(event){
+     event.preventDefault();
+    $(this).siblings().toggleClass("display-unanswered")
+    })
+});
+
+$(document).on('page:load', function(event){
+    // event.preventDefault();
+$('.btn-to-unanswered').on('click', function(event){
+     event.preventDefault(); 
+    $(this).siblings().toggleClass("display-unanswered")
+    })
+})

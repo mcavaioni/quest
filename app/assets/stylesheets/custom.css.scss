@@ -92,3 +92,11 @@ table tr td:first-child::before {
 .answers-color{
     color: blue;
 }
+
+.display-answered{
+    display: none;
+}
+
+.display-unanswered{
+    display: none;
+}

@@ -13,17 +13,17 @@
 <% @survey.questions.each do |question| %>
   <div class="panel panel-default parent">
     <div class="panel-heading">
-      <h4><%= question.title %></h4>
-      <h3 class="panel-title"><%= question.content %></h3>
+    Question:
+      <h4>Type: <%= question.title %></h4>
+      <h3 class="panel-title">Content: <%= question.content %></h3>
     </div>
-    <div class="panel-body answers-color">
-    Answers:
-    </div>
+    
       <div class="panel-body">
+      Answer:
           <div class="form-group">
             <div class="well col-sm-12">
               <%=question.answer.content%>
-              <div>
+              <div></br>
               <small>Created:
                    <%= time_ago_in_words(question.answer.created_at) %> ago,
               </small>

@@ -1,7 +1,7 @@
 
 <div class="display-unanswered"> 
 <% obj.each do |survey| %>
-<% if survey.questions.select{|a| a.answer}.count < survey.questions.count %>
+<% if survey.questions.select{|a| a.answer}.count < survey.questions.count %></br>
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
@@ -38,14 +38,14 @@
     </div>
 <%end%>
 <%end%>
-<%=link_to "cancel", :back %>
+<%=link_to "cancel", :back, class: "btn btn-default active"  %>
 </div>
 
 
 
 <div class="display-answered"> 
 <% obj.each do |survey| %>
-<% if survey.questions.select{|a| a.answer}.count == survey.questions.count %>
+<% if survey.questions.select{|a| a.answer}.count == survey.questions.count %></br>
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
@@ -69,18 +69,10 @@
                 <p>Total answers: <%= survey.questions.select{|a| a.answer}.count %></p>
             <%end%>
 
-            <% if logged_in?  %>
-                <div class="article-actions">
-                    <%=link_to "Edit this questionnaire", edit_survey_path(survey), class: "btn btn-xs btn-primary"%>
-                    <%=link_to "Delete this questionnaire", survey_path(survey), method: :delete, data: {confirm: "Are you sure you want to delete this questionnaire?"}, class: "btn btn-xs btn-danger" %>
-
-                    <%=link_to "Answer this questionnaire", new_survey_answer_path(survey), class: "btn btn-xs btn-success" %>
-                </div>
-             <% end %>
             </div>
         </div>
     </div>
 <%end%>
 <%end%>
-<%=link_to "cancel", :back %>
+<%=link_to "cancel", :back, class: "btn btn-default active" %>
 </div>

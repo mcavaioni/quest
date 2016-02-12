@@ -16,12 +16,17 @@ class AnswersController < ApplicationController
     # @survey = survey.find(@answer.survey_id)
     # @answer = @survey.answers.create(answer_params)
     # @survey.questions.answer.build(answer_params)
-    @answer = Answer.create(answer_params)
-
-    html_string = render_to_string 'answers/_answer', locals:{answer: @answer}, layout: false
-    render json: {template: html_string}
+    @answer = Answer.new(answer_params)
+    @answer.save
+      html_string = render_to_string 'answers/_answer', locals:{answer: @answer}, layout: false
+      render json: {template: html_string}
     # @reservation.valid?
     # render json: ReservationJsonViewObject.new(@reservation).get_json_for_reservation
+    # else
+    #   flash[:danger] = "If you are not able to answer a question please click on 'create answer and submit it as empty"
+    #   html_string = render_to_string 'answers/_answer', locals:{answer: @answer}, layout: false
+    #   render json: {template: html_string}
+    # end
   end
 
   def edit

@@ -22,6 +22,7 @@
       Answer:
           <div class="form-group">
             <div class="well col-sm-12">
+            <%if question.answer != nil%>
               <%=question.answer.content%>
               <div></br>
               <small>Created:
@@ -33,6 +34,7 @@
                <!--  <%=link_to "Delete this answer", answer_path(question.answer), method: :delete, data: {confirm: "Are you sure you want to delete this answer?"}, class: "btn btn-xs btn-danger" %> -->
               </div>
             </div>
+            <%end%>  
           </div>
       </div>
   </div>

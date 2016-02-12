@@ -1,5 +1,5 @@
-
 <div class="display-unanswered"> 
+<%=will_paginate%>
 <% obj.each do |survey| %>
 <% if survey.questions.select{|a| a.answer}.count < survey.questions.count %></br>
     <div class="row">
@@ -40,12 +40,15 @@
     </div>
 <%end%>
 <%end%>
+<%=will_paginate%>
 <%=link_to "cancel", surveys_path, class: "btn btn-default active"  %>
 </div>
 
 
 
+
 <div class="display-answered"> 
+<%=will_paginate%>
 <% obj.each do |survey| %>
 <% if survey.questions.select{|a| a.answer}.count == survey.questions.count %></br>
     <div class="row">
@@ -78,5 +81,6 @@
     </div>
 <%end%>
 <%end%>
+<%=will_paginate%>
 <%=link_to "cancel", surveys_path, class: "btn btn-default active" %>
 </div>

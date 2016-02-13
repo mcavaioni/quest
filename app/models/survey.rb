@@ -6,5 +6,7 @@ class Survey < ActiveRecord::Base
   accepts_nested_attributes_for :questions, reject_if: lambda {|attributes| attributes['title'].blank?}
 
   validates :name, presence: true, length: {minimum: 3, maximum: 25}
+  validates :product, presence: true, length: {minimum: 3, maximum: 25}
+  validates :deadline, presence: true
 
 end

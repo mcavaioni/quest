@@ -12,7 +12,7 @@ class SurveysController < ApplicationController
   end
 
   def create
-    # binding.pry
+    binding.pry
     @survey = Survey.new(survey_params)
     @survey.user = current_user
     if @survey.save

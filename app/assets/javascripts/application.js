@@ -16,5 +16,8 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require survey_form
+//= require moment
+//= require bootstrap-datetimepicker
+
 
 

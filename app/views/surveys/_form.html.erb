@@ -19,6 +19,30 @@
           <%= f.text_field :product, class: "form-control", placeholder: "Product type", autofocus: true %>
         </div>
       </div>
+      
+    
+     
+        <div class="form-group">
+          <div class="col-sm-2 control-label">
+            <%= f.label "Due date:" %>
+          </div>
+          <div class="col-sm-3">
+            <div class='input-group date' id='datetimepicker1'>
+               <%= f.text_field :deadline, class: "form-control" %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
+          </div>
+        </div>
+      
+
+
 
         <div class="well form-group">
           <div class="row">

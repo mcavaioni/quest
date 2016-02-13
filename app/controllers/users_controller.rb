@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :signup_type)
+    params.require(:user).permit(:username, :email, :password, :signup_type, :company)
   end
 
   def require_same_user

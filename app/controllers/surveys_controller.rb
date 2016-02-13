@@ -12,8 +12,8 @@ class SurveysController < ApplicationController
   end
 
   def create
-    # binding.pry
     @survey = Survey.new(survey_params)
+    # binding.pry
     @survey.user = current_user
     if @survey.save
       flash[:success] = "Questionnaire successfully created"

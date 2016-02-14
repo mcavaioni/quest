@@ -48,23 +48,24 @@ footer ul li {
 }
 
 
-table {
+/*table {
     counter-reset: rowNumber;
 }
 
 table tr:not(:first-child) {
     counter-increment: rowNumber;
-}
+}*/
 
 /*table tr:not(:nth-child(odd)) {
     counter-increment: rowNumber;
 }*/
 
-table tr td:first-child::before {
+/*table tr td:first-child::before {
     content: counter(rowNumber);
     min-width: 1em;
     margin-right: 0.5em;
 }
+*/
 
 .content {
     margin-top: 0;
@@ -100,3 +101,10 @@ table tr td:first-child::before {
 .display-unanswered{
     display: none;
 }
+
+/*table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+    }*/

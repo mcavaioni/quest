@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require sorttable
 //= require answers
 //= require bootstrap-sprockets
 //= require turbolinks

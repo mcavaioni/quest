@@ -7,24 +7,26 @@
   <th>Deadline</th>
   <th class="sorttable_nosort">Action</th>
   <% obj.each do |survey| %>
-    <% if survey.questions.select{|a| a.answer}.count < survey.questions.count %></br>
-      <tr>
-        <td><%= survey.user.company %></td>
-        <td><%= survey.name %></td>
-        <td><%= survey.created_at %></td>
-        <td><%= survey.product %></td>
-        <td><%= survey.deadline %></td>
-        <td>
-          <%=link_to "Edit", edit_survey_path(survey)%> 
-          <%=link_to "Delete", survey_path(survey), method: :delete, data: {confirm: "Are you sure you want to delete this questionnaire?"}%>
-          <%=link_to "Answer", new_survey_answer_path(survey)%>
-        </td>
-      </tr>
-    <%end%>
+        <% if survey.questions.select{|a| a.answer}.count < survey.questions.count %></br>
+          <tr>
+            <td><%= survey.user.company %></td>
+            <td><%= survey.name %></td>
+            <td><%= survey.created_at %></td>
+            <td><%= survey.product %></td>
+            <td><%= survey.deadline %></td>
+            <% if logged_in?  %>
+                <td>
+                  <%=link_to "Edit", edit_survey_path(survey)%> 
+                  <%=link_to "Delete", survey_path(survey), method: :delete, data: {confirm: "Are you sure you want to delete this questionnaire?"}%>
+                  <%=link_to "Answer", new_survey_answer_path(survey)%>
+                </td>
+            <%end%>
+          </tr>
+        <%end%>
     <%end%>
 </table>
+<%=link_to "cancel", surveys_path, class: "btn btn-default active" %>
 </div>
-
 
 <!-- <div class="display-unanswered"> 
 <% obj.each do |survey| %>

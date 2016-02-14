@@ -9,10 +9,10 @@
   <% obj.each do |survey| %>
         <% if survey.questions.select{|a| a.answer}.count < survey.questions.count %></br>
           <tr>
-            <td><%= survey.user.company %></td>
-            <td><%= survey.name %></td>
+            <td><%= survey.user.company.capitalize %></td>
+            <td><%= survey.name.capitalize %></td>
             <td><%= survey.created_at %></td>
-            <td><%= survey.product %></td>
+            <td><%= survey.product.capitalize %></td>
             <td><%= survey.deadline %></td>
             <% if logged_in?  %>
                 <td>

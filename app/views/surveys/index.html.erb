@@ -1,10 +1,3 @@
-<h1 align="center">Listing all questionnaires</h1>
+<%= link_to "Unanswered", unanswered_path %>
 
-<div class="article-actions">
-<%=link_to "Unanswered questionnaires", surveys_path, class: "btn btn-warning btn-to-unanswered"%></br></br>
-
-<%=link_to "Answered questionnaires", surveys_path, class: "btn btn-primary btn-to-answered"%></br></br>
-
-<%= render 'survey', obj: @surveys %></br>
-</div>
-
+<%= link_to "Answered", answered_path %>

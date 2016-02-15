@@ -2,7 +2,7 @@ class SurveysController < ApplicationController
 
 
   def index
-    @surveys=Survey.all
+    
     # binding.pry
   end
 
@@ -51,7 +51,35 @@ class SurveysController < ApplicationController
     redirect_to surveys_path
   end
 
+  def unanswered
+    @unanswered =[]
+    Survey.all.each do |survey|
+      if survey.questions.any?{|a| a.answer == nil} 
+        @unanswered << survey
+      end
+    end
+    if @unanswered!=nil
+      @surveys = @unanswered
+    else 
+      flash[:success] = "All the questionnaires have been answered"
+    end
+  end
 
+  def answered
+    @answered =[]
+    Survey.all.each do |survey|
+      if survey.questions.all?{|a| a.answer != nil} 
+        @answered << survey
+      end
+    end
+    if @answered!=nil
+      @answered
+    else 
+      flash[:danger] = "There are no answered questionnaires!"
+    end
+    # binding.pry
+
+  end
 
 
   private

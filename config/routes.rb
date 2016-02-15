@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :answers
   end
 
+  get 'unanswered' => 'surveys#unanswered', :as => 'unanswered'
+  get 'answered' => 'surveys#answered', :as => 'answered'
 
   resources :answers
   # The priority is based upon order of creation: first created -> highest priority.

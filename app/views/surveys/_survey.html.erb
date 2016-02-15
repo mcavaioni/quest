@@ -7,14 +7,14 @@
   <th>Deadline</th>
   <th class="sorttable_nosort">Action</th>
   <% obj.each do |survey| %>
-        <!--<% if survey.questions.select{|a| a.answer}.count < survey.questions.count %></br> -->
+        
           <tr>
             <td><%= survey.user.company.capitalize %></td>
-            <%if survey.product !=nil %>
                 <td><%= survey.name.capitalize %></td>
-            <%end%>
             <td><%= survey.created_at %></td>
-            <td><%= survey.product.capitalize %></td>
+            <%if survey.product !=nil %>
+                <td><%= survey.product.capitalize %></td>
+            <%end%>
             <td><%= survey.deadline %></td>
             <% if logged_in?  %>
                 <td>
@@ -25,7 +25,7 @@
             <%end%>
           </tr>
         <%end%>
-    <!--<%end%> -->
+  
 </table>
 <%=link_to "cancel", surveys_path, class: "btn btn-default active" %>
 

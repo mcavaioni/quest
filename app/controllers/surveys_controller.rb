@@ -73,7 +73,7 @@ class SurveysController < ApplicationController
       end
     end
     if @answered!=nil
-      @answered
+      @surveys = @answered
     else 
       flash[:danger] = "There are no answered questionnaires!"
     end

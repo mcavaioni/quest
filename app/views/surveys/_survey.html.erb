@@ -7,10 +7,9 @@
   <th>Deadline</th>
   <th class="sorttable_nosort">Action</th>
   <% obj.each do |survey| %>
-        
           <tr>
             <td><%= survey.user.company.capitalize %></td>
-                <td><%= survey.name.capitalize %></td>
+            <td><%= survey.name.capitalize %></td>
             <td><%= survey.created_at %></td>
             <%if survey.product !=nil %>
                 <td><%= survey.product.capitalize %></td>
@@ -18,15 +17,17 @@
                 <td> </td>
             <%end%>
             <td><%= survey.deadline %></td>
-            <% if logged_in?  %>
+            <% if logged_in? %>
                 <td>
-                  <%=link_to "Show", survey_answer_path(id:survey.id, survey_id: survey.id)%> 
+                <% if survey.user.signup_type == "Interviewer" %>
+                  <%=link_to "Edit", edit_survey_path(survey)%> 
                   <%=link_to "Delete", survey_path(survey), method: :delete, data: {confirm: "Are you sure you want to delete this questionnaire?"}%>
+                <%end%>
                   <%=link_to "Answer", new_survey_answer_path(survey)%>
-                </td>
             <%end%>
+                </td>
           </tr>
-        <%end%>
+    <%end%>
   
 </table>
 <div class="center">

@@ -10,7 +10,7 @@
           <tr>
             <td><%= survey.user.company.capitalize %></td>
             <td><%= survey.name.capitalize %></td>
-            <td><%= survey.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= survey.created_at.strftime("%Y-%m-%d %H:%M") %></td>
             <%if survey.product !=nil %>
                 <td><%= survey.product.capitalize %></td>
             <%else%>

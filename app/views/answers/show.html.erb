@@ -25,9 +25,15 @@
             <%if question.answer != nil%>
               <%=question.answer.content%>
               <div></br>
-              <small>Created:
-                   <%= time_ago_in_words(question.answer.created_at) %> ago,
-              </small>
+              [<small>Created on:
+                  <%= question.answer.created_at.strftime("%Y-%m-%d at %H:%M") %>
+                   <!-- <%= time_ago_in_words(question.answer.created_at) %> ago, -->
+              </small>]
+              <div>
+              [<small>Updated on:
+                   <%= question.answer.updated_at.strftime("%Y-%m-%d at %H:%M") %>
+              </small>]
+              </div>
               </div>
               <div class="article-actions">
                 <%=link_to "Edit this answer", edit_answer_path(question.answer), class: "btn btn-xs btn-primary"%>

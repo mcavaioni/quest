@@ -4,7 +4,8 @@
     <div class="row center">
     <h4 class="center content">List of questions:</h4>
       <div class="col-md-4 col-md-offset-4"> Total: 
-        <small><%= pluralize(@survey.questions.count, "question") if @survey.questions %></small>
+        <small><%= pluralize(@survey.questions.count, "question") if @survey.questions %></small>;
+        <small><%= pluralize(@survey.questions.select{|a| a.answer}.count, "answer") %></small>
       </div>
     </div>
 
@@ -29,9 +30,15 @@
             <div class="well col-sm-12">
               <%=question.answer.content%>
               <div></br>
-              <small>Created:
-                   <%= time_ago_in_words(question.answer.created_at) %> ago,
-              </small>
+              [<small>Created on:
+                  <%= question.answer.created_at.strftime("%Y-%m-%d at %H:%M") %>
+                   <!-- <%= time_ago_in_words(question.answer.created_at) %> ago, -->
+              </small>]
+              <div>
+              [<small>Updated on:
+                   <%= question.answer.updated_at.strftime("%Y-%m-%d at %H:%M") %>
+              </small>]
+              </div>
               </div>
               <div class="article-actions">
                 <%=link_to "Edit this answer", edit_answer_path(question.answer), class: "btn btn-xs btn-primary"%>

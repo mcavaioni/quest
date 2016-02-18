@@ -5,6 +5,7 @@
   <th>Date sent</th>
   <th>Product name</th>
   <th>Deadline</th>
+  <th>% Completion</th>
   <th class="sorttable_nosort">Action</th>
   <% obj.each do |survey| %>
           <tr>
@@ -17,6 +18,7 @@
                 <td> </td>
             <%end%>
             <td><%= survey.deadline %></td>
+            <td> <%=((survey.questions.select{|a| a.answer}.count)/(survey.questions.count).to_f*100).to_i %> % </td>
             <% if logged_in? %>
                 <td>
                 <% if survey.user.signup_type == "Interviewer" %>

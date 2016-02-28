@@ -48,36 +48,42 @@ $(document).on('page:load', function(){
 //     }
 // })
 
-//for displaying/hiding answered questionnaires
-$(function(event){
-  $('.btn-to-answered').on('click', function(event){
-     event.preventDefault(event);
-     debugger;
-    $(this).siblings().toggleClass("display-answered")
-    })
-});
 
-$(document).on('page:load', function(event){
-$('.btn-to-answered').on('click', function(event){
-     event.preventDefault(); 
-    $(this).siblings().toggleClass("display-answered")
-    })
+// $(function(){
+ 
+//   $('select').on('change', function(){
+//   str = $(this).val()
+//   var html_str = "<%=collection_check_boxes :question_ids, Question.select{|a| a.title =="+"'"+ str +"'"+"}" +", :id, :content do |cb| %><% cb.label(class: 'checkbox-inline input_checkbox  question_choice') {cb.check_box(class: 'checkbox') + cb.text} %><%end%>";
+// // debugger;
+//   var wrapped = $(html_str)
+//   $(".check").append(wrapped)
+//   })
+// })
+
+$(function(){
+  $('select').on('change', function(){
+   // event.preventDefault();
+   var action = '/get_checkboxes';
+   var method = 'get';
+   // var title = $(this).val();
+   var data = $(this).serializeArray();
+
+
+   $.ajax({
+    method: method,
+    url: action,
+    // data: {title: title},
+    data: data,
+    dataType: 'script'
+   })
+
+   // debugger;
+  })
 })
 
-//this is for unaswered questionnaires
-$(function(event){
-  $('.btn-to-unanswered').on('click', function(event){
-     event.preventDefault();
-    $(this).siblings().toggleClass("display-unanswered")
-    })
-});
 
-$(document).on('page:load', function(event){
-$('.btn-to-unanswered').on('click', function(event){
-     event.preventDefault(); 
-    $(this).siblings().toggleClass("display-unanswered")
-    })
-})
+
+
 
 
 

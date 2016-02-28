@@ -12,7 +12,7 @@ class SurveysController < ApplicationController
   end
 
   def create
-    # binding.pry
+    params[:survey][:questions_attributes]["0"][:title] = ""
     @survey = Survey.new(survey_params)
     @survey.user = current_user
     if @survey.save
@@ -78,9 +78,14 @@ class SurveysController < ApplicationController
       flash[:danger] = "There are no answered questionnaires!"
     end
     # binding.pry
-
   end
 
+   def get_checkboxes
+    @title_ajax = params[:survey][:questions_attributes]["0"][:title]
+    respond_to do |format|
+      format.js {}
+    end
+  end
 
   private
 

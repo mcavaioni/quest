@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get 'answered' => 'surveys#answered', :as => 'answered'
 
   resources :answers
+
+  # get 'surveys/get_checkboxes'
+  get 'get_checkboxes', to: 'surveys#get_checkboxes', :as => 'get_checkboxes'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

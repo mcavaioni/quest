@@ -28,6 +28,7 @@ class SurveysController < ApplicationController
   end
 
   def update
+    params[:survey][:questions_attributes]["0"][:title] = ""
     @survey = Survey.find(params[:id])
     if @survey.update(survey_params)
       flash[:success] = "Questionnaire successfully updated"
@@ -81,6 +82,13 @@ class SurveysController < ApplicationController
   end
 
    def get_checkboxes
+    # @title_ajax = params[:survey][:questions_attributes]["0"][:title]
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
+  def show_checkboxes
     @title_ajax = params[:survey][:questions_attributes]["0"][:title]
     respond_to do |format|
       format.js {}

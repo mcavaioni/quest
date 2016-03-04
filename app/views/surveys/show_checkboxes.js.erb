@@ -1,0 +1,13 @@
+
+var ajax_list = ("<%= j render partial: 'ajax', locals: {title_ajax: @title_ajax} %>")
+
+$( ".check" ).children().hide()
+  $( ".check" ).children()
+  .map(function(){
+    var list_check = $(ajax_list)
+    for(i=0; i<list_check.length; i++){
+      if($(this).attr('for') == $(list_check[i]).attr('for')){
+      $(this).removeAttr('style')
+      }
+    }
+  })

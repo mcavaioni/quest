@@ -49,25 +49,12 @@ $(document).on('page:load', function(){
 // })
 
 
-// $(function(){
- 
-//   $('select').on('change', function(){
-//   str = $(this).val()
-//   var html_str = "<%=collection_check_boxes :question_ids, Question.select{|a| a.title =="+"'"+ str +"'"+"}" +", :id, :content do |cb| %><% cb.label(class: 'checkbox-inline input_checkbox  question_choice') {cb.check_box(class: 'checkbox') + cb.text} %><%end%>";
-// // debugger;
-//   var wrapped = $(html_str)
-//   $(".check").append(wrapped)
-//   })
-// })
-
+//first ajax call to popolate and hide all the checkboxes items at page load
 $(function(){
-  $('select').on('change', function(){
-   // event.preventDefault();
    var action = '/get_checkboxes';
    var method = 'get';
    // var title = $(this).val();
    var data = $(this).serializeArray();
-
 
    $.ajax({
     method: method,
@@ -76,15 +63,25 @@ $(function(){
     data: data,
     dataType: 'script'
    })
-
-   // debugger;
-  })
 })
 
+//second ajax call to detect the choice in the dropdown list and show only the ones with the selected title
+$(function(){
+  $('select').on('change', function(){
+   var action = '/show_checkboxes';
+   var method = 'get';
+   // var title = $(this).val();
+   var data = $(this).serializeArray();
 
-
-
-
+   $.ajax({
+    method: method,
+    url: action,
+    // data: {title: title},
+    data: data,
+    dataType: 'script'
+   })
+  })
+})
 
 
 

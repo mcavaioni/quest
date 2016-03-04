@@ -1,2 +1,7 @@
 
-$(".check").append("<%= j render partial: 'ajax', locals: {title_ajax: @title_ajax} %>");
+<% Question::Titles.each do |title| %>
+
+  $(".check").append($("<%= j render partial: 'ajax', locals: {title_ajax: title} %>").hide());
+
+<%end%>
+

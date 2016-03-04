@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # get 'surveys/get_checkboxes'
   get 'get_checkboxes', to: 'surveys#get_checkboxes', :as => 'get_checkboxes'
-  
+  get 'show_checkboxes', to: 'surveys#show_checkboxes', :as => 'show_checkboxes'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

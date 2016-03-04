@@ -14,7 +14,6 @@ class SurveysController < ApplicationController
   def create
     # the following param needs to be removed beacuse the item has no content and it won't allow to submit it
     params[:survey][:questions_attributes]["0"][:title] = ""
-    binding.pry
     @survey = Survey.new(survey_params)
     @survey.user = current_user
     if @survey.save
@@ -85,9 +84,9 @@ class SurveysController < ApplicationController
 
    def get_checkboxes
     # @title_ajax = params[:survey][:questions_attributes]["0"][:title]
-    respond_to do |format|
-      format.js {}
-    end
+      respond_to do |format|
+        format.js {}
+      end
   end
 
   def show_checkboxes

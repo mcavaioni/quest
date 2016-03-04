@@ -1,7 +1,7 @@
+<%if @survey.title == nil %> //check if the survey already exists (therefore it's an update) and I don't need to append the lista again
+  <% Question::Titles.each do |title| %>
 
-<% Question::Titles.each do |title| %>
+    $(".check").append($("<%= j render partial: 'ajax', locals: {title_ajax: title} %>").hide());
 
-  $(".check").append($("<%= j render partial: 'ajax', locals: {title_ajax: title} %>").hide());
-
+  <%end%>
 <%end%>
-

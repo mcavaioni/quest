@@ -51,7 +51,13 @@
                     <%= field.select :title, Question::Titles, { :include_blank => true }, { :class => 'dropdown-js'}%>
                     <%end%>
                   <div class="check">
+                  <%if @survey.new_record? %>
                     <!-- things get appended here through ajax  -->
+                  <%else%>
+                    <%= collection_check_boxes :survey, :question_ids, Question.all, :id, :content do |cb| %>
+                    <% cb.label(class: "checkbox-inline hide-checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                    <% end %>
+                  <%end%>
                   </div>
             </div>
           </div>

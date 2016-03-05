@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-# before_action :get_checkboxes, only: [:create]
+# before_action :check_due_date, only: [:create, :edit, :update]
 
   def index
     
@@ -101,4 +101,5 @@ class SurveysController < ApplicationController
   def survey_params
     params.require(:survey).permit(:name, :product, :deadline, :user_id, :question_ids => [], :questions_attributes => [:id, :title, :content])
   end
+
 end

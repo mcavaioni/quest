@@ -8,5 +8,16 @@ class Survey < ActiveRecord::Base
   validates :name, presence: true, length: {minimum: 3, maximum: 25}
   validates :product, presence: true, length: {minimum: 3, maximum: 25}
   validates :deadline, presence: true
+  validate :check_due_date
+
+
+  def check_due_date
+    # binding.pry
+    if self.deadline && self.deadline < Date.current 
+      errors.add(:Due_date, "can not be in the past")
+    end
+  end
+
+
 
 end

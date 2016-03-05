@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-
+# before_action :get_checkboxes, only: [:create]
 
   def index
     
